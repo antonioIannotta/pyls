@@ -14,5 +14,8 @@ def main():
     if len(sys.argv) == 2:
         print(ls(json_data))
 
+    if "-A" in sys.argv:
+        print(ls(json_data, a_option=True))
+
 if __name__ == "__main__":
     main()

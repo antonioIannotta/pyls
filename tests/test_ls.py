@@ -14,6 +14,10 @@ def test_ls_with_mixed_files():
     json_data = '{"contents": [{"name": "token.go"}, {"name": ".gitignore"}, {"name": "go.mod"}]}'
     assert ls(json_data) == "token.go go.mod "
 
+def test_ls_with_a_options():
+    json_data = '{"contents": [{"name": "token.go"}, {"name": ".gitignore"}, {"name": "go.mod"}]}'
+    assert ls(json_data, a_option=True) == "token.go .gitignore go.mod "
+
 def test_ls_with_empty_contents():
     json_data = '{"contents": []}'
     assert ls(json_data) == ""
