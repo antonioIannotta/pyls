@@ -9,8 +9,8 @@ if "--help" in sys.argv:
     sys.exit(0)
 
 def main():
-    json_file = sys.argv[1]
-    json_data = read_json_content(json_file)
+    json_file: str = sys.argv[1]
+    json_data: str = read_json_content(json_file)
     if len(sys.argv) == 2:
         print(ls(json_data))
 
