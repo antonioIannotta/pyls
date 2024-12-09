@@ -1,10 +1,18 @@
 import sys
 
-from help_message import HELP_MESSAGE
+from commands.help_message import HELP_MESSAGE
+from commands.ls_command import ls
+from utils import read_json_content
 
 if "--help" in sys.argv:
     print(HELP_MESSAGE)
     sys.exit(0)
 
 def main():
-    return
+    json_file = sys.argv[1]
+    json_data = read_json_content(json_file)
+    if len(sys.argv) == 2:
+        print(ls(json_data))
+
+if __name__ == "__main__":
+    main()
