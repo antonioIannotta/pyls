@@ -1,4 +1,5 @@
 import time
+from typing import List, Any, Optional, Dict
 
 def read_json_content(json_file: str) -> str:
     """
@@ -27,8 +28,34 @@ def format_bytes(size: int) -> str:
     units = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB']
     unit_index = 0
 
-    # Convert to the appropriate unit (greater than 1023 bytes)
     while size >= 1024 and unit_index < len(units) - 1:
         size /= 1024
         unit_index += 1
+    if unit_index == 0:
+        return size
+
     return f"{size:.2f} {units[unit_index]}"
+
+def find_item(contents: List[Dict[str, Any]], name: str) -> Optional[Dict[str, Any]]:
+    """
+    This function returns either a subdirectory or a file in
+    :param contents: the contents to be navigated
+    :param name: the path to be reached
+    :return: the information about the path
+    """
+    if "/" in name:
+        if name.startswith("./"):
+            name = name.split("/")[2]
+        else:
+            name = name.split("/")[1]
+
+    for item in contents:
+        if "contents" in item:
+            result = find_item(item["contents"], name)
+            if result:
+                return result
+
+        if item["name"] == name:
+            return item
+
+    return None

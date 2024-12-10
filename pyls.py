@@ -25,6 +25,8 @@ def main():
     # if "-l" in sys.argv:
     #    print(ls_l(json_data))
 
+    print(ls_l(json_data, path=sys.argv[3]))
+
     ##TODO: handle the main with the several options
 
 
