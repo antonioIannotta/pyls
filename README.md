@@ -58,7 +58,7 @@ python -m pyls data.json [OPTIONS] [PATH] [--filter=<dir|file>]
 | -l                             | 	Use a long listing format (detailed info)         |
 | -r	                            | Reverse the order of the sorting                   |
 | -h	                            | Display file sizes in human-readable format (e.g., KB) |
-| -t	                            | Sort by modification time, newest first            |
+| -t	                            | Sort by modification time            |
 | --filter=dir                   | 	Show only directories                             |
 | --filter=file| 	Show only files                                   |
 
