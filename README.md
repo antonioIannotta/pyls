@@ -44,7 +44,7 @@ chmod +x pyls.py
 ## Basic Syntax
 
 ```bash
-python -m pyls [OPTIONS] [PATH] [--filter=<dir|file>] data.json
+python -m pyls data.json [OPTIONS] [PATH] [--filter=<dir|file>]
 ```
 - OPTIONS: Command-line options (e.g., -l, -A).
 - PATH: The path to the directory you want to list (optional).
